@@ -1,0 +1,23 @@
+ROADMAPA ROZWOJU ANALIZY SIECIOWEJ (GTB + PYTHON + QGIS)
+
+WIZUALIZACJA DENDRYTÓW (Opcja B - "Pajęczyny" linii)
+Cel: Automatyczne rysowanie fizycznych ścieżek "dendrytów" na mapie w QGIS.
+Krok 1: Przygotowanie "Rysownika" (nowy skrypt w Pythonie).
+Krok 2: Użycie biblioteki GeoPandas do konwersji wyników (ścieżek ROI) na plik wektorowy (.gpkg lub .geojson).
+Krok 3: Wykorzystanie współrzędnych (Geo_X, Geo_Y) do rysowania linii od centrum obiektu do centrum obiektu.
+Krok 4: Import gotowych linii do QGIS jako nakładki na raster siedlisk.
+
+MAPA HUBÓW (Strategiczne Węzły Sieci)
+Cel: Identyfikacja "bram", które otwierają dostęp do największych zasobów terytorialnych w regionie.
+Krok 1: Wykorzystanie skryptu 'gtb_analiza_hubow.py' dla wszystkich obiektów w sieci.
+Krok 2: Ustawienie parametru ZASIEG_LOTU_M (limitowany zasięg gatunku lub 'float('inf')' dla zasięgu teoretycznego).
+Krok 3: Eksport wyników do pliku CSV (z kolumnami typu: Wlasna_Powierzchnia, Liczba_Sasiadow, Dostepna_Nowa_Powierzchnia).
+Krok 4: Wizualizacja w QGIS poprzez Złączenie (Join) tabeli z warstwą wektorową siedlisk i użycie stylu "Graduated" (Mapa Cieplna).
+
+ZALECANA KOLEJNOŚĆ PRAC:
+
+Uruchomienie analizy Hubów (daje szybko "duży obraz" regionu i wskazuje, gdzie warto szukać dendrytów).
+
+Wybór najważniejszych Hubów z listy.
+
+Uruchomienie "Rysownika" dendrytów dla wybranych Hubów (wizualizacja konkretnych połączeń).
